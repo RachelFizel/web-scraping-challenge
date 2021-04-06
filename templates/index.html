@@ -17,23 +17,40 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
 
-    <!-- Latest Mars News-->
-    <div class="row" id="mars lisiting-listings">
+    <!-- Latest Mars News -->
+    <div class="row" id="mars-listings">
       <div class="col-md-12">
         <h2 class="title">Latest Mars News</h2>
-        <h4 class="heading">{{listings.title}} </h4>
-        <small>{{listings.article_teaser}}</small>
+        <h4 class="heading">{{mars.news_title}} </h4>
+        <h5>{{mars.article}}</h5>
       </div>
     </div>
 
     <br>
-    <br>
 
-    <!-- Featured Mars Image-->
-    <div class="row" id="mars lisiting-listings">
+    <!-- Featured Mars Image -->
+    <div class="row" id="featured-image">
       <div class="col-md-8">
         <h2 class="title">Featured Mars Image</h2>
-        <h4 class="heading">{{listings.featured_image_url}} </h4>
+        <img src="{{mars.featured_image}}" alt="Featured Mars Image">
+      </div>
+      <div class="col-md-4">
+        <h2 class="title">Mars Facts</h2>
+
+        <table class="table table-striped">
+          {{mars.facts | safe}}
+
+      </div>
+    </div>
+
+    <!-- Featured Mars Hemispheres -->
+    <div class="row" id="mars-hemispheres">
+      <div class="col-md-12">
+        <h2 class="title">MarsHemispheres</h2>
+        <img src="{{mars.img_url}}" alt="Mars Hemispheres">
+      </div>
+
+
       </div>
     </div>
 

@@ -25,12 +25,12 @@ mongo = PyMongo(app)
 #################################################
 @app.route("/")
 def index():
-    return(
-         f"Available Routes:<br/>"
-         f"/scrape<br/>"   
-    )
-    #listings = mongo.db.listings.find_one()
-    #return render_template("index.html", listings=listings)
+    # return(
+    #      f"Available Routes:<br/>"
+    #      f"/scrape<br/>"   
+    # )
+    mars = mongo.db.mars.find_one()
+    return render_template("index.html", mars=mars)
     
 
 
@@ -38,10 +38,11 @@ def index():
 def scraper():
     #return(f'test')
     #scraped the page, adds the code to the database, and returns to the index route
-    listings = mongo.db.listings
-    listings_data = scrape_mars.scrape()
-    return(listings_data)
-    listings.update({}, listings_data, upsert=True)
+    mars = mongo.db.mars
+    mars_data = scrape_mars.scrape_info()
+    
+    mars.update({}, mars_data, upsert=True)
+    #return(listings_data)
     return redirect("/", code=302)
 
 
