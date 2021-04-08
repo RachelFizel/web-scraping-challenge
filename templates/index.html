@@ -43,16 +43,24 @@
       </div>
     </div>
 
+    <br>
+    <br>
+    
     <!-- Featured Mars Hemispheres -->
-    <div class="row" id="mars-hemispheres">
-      <div class="col-md-12">
-        <h2 class="title">MarsHemispheres</h2>
-        <img src="{{mars.img_url}}" alt="Mars Hemispheres">
+    <h2 class="title">MarsHemispheres</h2>
+    <div class = "container">
+      <div class="row" id="mars-hemispheres">
+        {% for hemi in mars.hemisphers %}
+        <div class="col-md-3">
+          <img src="{{hemi.img_url}}" alt="Mars Hemispheres" style="width:200px;height:200px;">
+          <h3 class="heading">{{hemi.title}}</h3>
       </div>
-
-
-      </div>
-    </div>
+    {% endfor %}
+  </div>
+</div>
+        
+<br>      
+<br>
 
   </div>
 </body>
